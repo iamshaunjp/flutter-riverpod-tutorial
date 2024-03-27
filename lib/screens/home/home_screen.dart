@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_files/providers/products_provider.dart';
 import 'package:riverpod_files/shared/cart_icon.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final allProducts = ref.watch(productsProvider);
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Garage Sale Products'),
@@ -14,7 +18,7 @@ class HomeScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: GridView.builder(
-          itemCount: 8,
+          itemCount: allProducts.length,
           gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 20,
@@ -25,6 +29,13 @@ class HomeScreen extends StatelessWidget {
             return Container(
               padding: const EdgeInsets.all(20),
               color: Colors.blueGrey.withOpacity(0.05),
+              child: Column(
+                children: [
+                  Image.asset(allProducts[index].image, width: 60, height: 60),
+                  Text(allProducts[index].title),
+                  Text('£${allProducts[index].price}'),
+                ]
+              )
             );
           },
         ),

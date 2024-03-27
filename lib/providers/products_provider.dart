@@ -12,10 +12,10 @@ const List<Product> allProducts = [
   Product(id: '8', title: 'Electric Guitar', price: 79.99, image: 'assets/products/guitar.png'),
 ];
 
-final productsProvider = Provider<List<Product>>((ref) {
+final productsProvider = Provider((ref) {
   return allProducts;
 });
 
-final reducedProductsProvider = Provider<List<Product>>((ref) {
+final reducedProductsProvider = Provider((ref) {
   return allProducts.where((p) => p.price < 50).toList();
 });
