@@ -14,14 +14,6 @@ const List<Product> allProducts = [
   Product(id: '8', title: 'Electric Guitar', price: 79, image: 'assets/products/guitar.png'),
 ];
 
-// final productsProvider = Provider((ref) {
-//   return allProducts;
-// });
-
-// final reducedProductsProvider = Provider((ref) {
-//   return allProducts.where((p) => p.price < 50).toList();
-// });
-
 // Generated providers
 
 @riverpod
