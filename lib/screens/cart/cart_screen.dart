@@ -20,7 +20,6 @@ class _CartScreenState extends ConsumerState<CartScreen> {
       appBar: AppBar(
         title: const Text('Your Cart'),
         centerTitle: true,
-        // actions: [],
       ),
       body: Container(
         padding: const EdgeInsets.all(30),
